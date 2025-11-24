@@ -5,7 +5,6 @@ const path = require('path');
 
 const commands = [];
 
-// Caminho absoluto para evitar erros no Render
 const commandsPath = path.resolve(__dirname, 'commands', 'economia');
 
 if (!fs.existsSync(commandsPath)) {
