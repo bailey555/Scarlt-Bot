@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
-const { getUser, saveDB } = require('../../handlers/dbManager');
+const { getUser, saveDB } = require('./dbManager');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -17,3 +17,9 @@ module.exports = {
             return interaction.reply({ content: '❌ Dinheiro insuficiente.', ephemeral: true });
 
         user.money -= amount;
+        user.bank += amount;
+        saveDB();
+
+        await interaction.reply(`🏦 Você depositou **${amount} moedas**.`);
+    }
+};
