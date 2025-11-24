@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
-const { db } = require('../../handlers/dbManager');
+const { db } = require('./dbManager');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -12,7 +12,6 @@ module.exports = {
             .slice(0, 10);
 
         let msg = '🏆 **Top 10 mais ricos:**\n\n';
-
         ranking.forEach(([id, data], i) => {
             msg += `**${i + 1}.** <@${id}> — 💰 ${data.money + data.bank}\n`;
         });
