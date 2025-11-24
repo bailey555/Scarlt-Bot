@@ -1,1 +1,12 @@
-commands/economia/
+📦 SeuBot/
+ ┣ 📁 commands/
+ ┃   ┗ 📁 economia/
+ ┃        ┣ saldo.js
+ ┃        ┗ (outros comandos).js
+ ┣ deploy.js
+ ┣ index.js
+ ┣ db.json
+ ┣ package.json
+ ┣ .env
+ ┗ .nvmrc
+
