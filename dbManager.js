@@ -1,9 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 
-const dbPath = path.join(__dirname, '..', 'db.json');
+const dbPath = path.join(__dirname, 'db.json');
 
-// Se não existir, cria automaticamente
+// Cria db.json automaticamente se não existir
 if (!fs.existsSync(dbPath)) {
     fs.writeFileSync(dbPath, JSON.stringify({}, null, 2));
 }
