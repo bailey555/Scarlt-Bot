@@ -1,18 +1,14 @@
 require('dotenv').config();
 const { REST, Routes } = require('discord.js');
-const fs = require('fs');
-const path = require('path');
 
 const commands = [];
 
-const basePath = path.join(__dirname, 'commands');
-for (const folder of fs.readdirSync(basePath)) {
-    const files = fs.readdirSync(path.join(basePath, folder)).filter(f => f.endsWith('.js'));
+// Lista de comandos na raiz
+const commandFiles = ['daily.js', 'depositar.js', 'pagar.js', 'sacar.js', 'saldo.js', 'top.js'];
 
-    for (const file of files) {
-        const cmd = require(path.join(basePath, folder, file));
-        commands.push(cmd.data.toJSON());
-    }
+for (const file of commandFiles) {
+    const cmd = require(`./${file}`);
+    commands.push(cmd.data.toJSON());
 }
 
 const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
