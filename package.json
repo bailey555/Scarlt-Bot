@@ -1,8 +1,9 @@
 {
-  "name": "seubot",
+  "name": "scarlt-bot",
   "version": "1.0.0",
-  "description": "Bot Discord de economia e comandos",
+  "description": "Bot Discord com comandos de economia",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node index.js"
   },
