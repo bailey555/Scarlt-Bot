@@ -1,7 +1,5 @@
 require('dotenv').config();
 const { Client, Collection, GatewayIntentBits, ActivityType } = require('discord.js');
-const fs = require('fs');
-const path = require('path');
 
 const client = new Client({
     intents: [
@@ -13,15 +11,12 @@ const client = new Client({
 
 client.commands = new Collection();
 
-const commandsPath = path.join(__dirname, 'commands');
-for (const folder of fs.readdirSync(commandsPath)) {
-    const folderPath = path.join(commandsPath, folder);
-    const files = fs.readdirSync(folderPath).filter(file => file.endsWith('.js'));
+// Lista todos os comandos na raiz
+const commandFiles = ['daily.js', 'depositar.js', 'pagar.js', 'sacar.js', 'saldo.js', 'top.js'];
 
-    for (const file of files) {
-        const command = require(path.join(folderPath, file));
-        client.commands.set(command.data.name, command);
-    }
+for (const file of commandFiles) {
+    const command = require(`./${file}`);
+    client.commands.set(command.data.name, command);
 }
 
 client.once('ready', () => {
@@ -31,6 +26,7 @@ client.once('ready', () => {
 
 client.on('interactionCreate', async interaction => {
     if (!interaction.isChatInputCommand()) return;
+
     const command = client.commands.get(interaction.commandName);
     if (!command) return;
 
