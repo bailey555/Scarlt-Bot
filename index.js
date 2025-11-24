@@ -29,7 +29,7 @@ for (const file of commandFiles) {
 // Eventos
 client.once('ready', () => {
     console.log(`🤖 ${client.user.tag} está online!`);
-    client.user.setActivity('👑 Cuidando do servidor', { type: ActivityType.Playing });
+    client.user.setActivity('👑 Economia funcionando', { type: ActivityType.Playing });
 });
 
 client.on('interactionCreate', async interaction => {
@@ -42,9 +42,10 @@ client.on('interactionCreate', async interaction => {
         await command.execute(interaction, db, saveDB);
     } catch (error) {
         console.error(error);
-        await interaction.reply({ content: '❌ Ocorreu um erro ao executar este comando!', ephemeral: true });
+        await interaction.reply({ content: '❌ Erro ao executar o comando!', ephemeral: true });
     }
 });
 
-// Login no bot
+// Login
 client.login(process.env.TOKEN);
+
