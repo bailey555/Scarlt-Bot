@@ -3,7 +3,8 @@ const { SlashCommandBuilder } = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName('saldo')
-        .setDescription('Veja seu saldo atual 💰'),
+        .setDescription('Veja seu saldo atual 💰')
+        .setDMPermission(false),
 
     async execute(interaction, db, saveDB) {
         const user = interaction.user.id;
