@@ -1,9 +1,14 @@
 {
   "name": "seubot",
   "version": "1.0.0",
+  "description": "Meu bot Discord",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
-  "dependencies": {}
+  "author": "Seu Nome",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^14.15.1"
+  }
 }
